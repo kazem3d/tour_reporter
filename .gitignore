@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+report_number_of_tour.csv
+report_duration_tour.csv
+report_database
+report.csv
+personel/
+files/
+
 # Distribution / packaging
 .Python
 build/
