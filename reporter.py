@@ -45,6 +45,9 @@ def delete_from_database(name):
     curser.execute('DELETE FROM main WHERE name = \'%s\'; ' %(name) )
     conn.commit()
 
+print('Your xls file must be in /files/ folder  ')
+print('File\'s name must be like \"1 (5).xls>\" ')
+print('')
 
 #read number of xls file that need to read and then write in database
 number_of_file=input('Enter number of file you need to analyze:')
