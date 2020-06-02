@@ -12,6 +12,7 @@ report_database
 report.csv
 personel/
 files/
+test.py
 
 # Distribution / packaging
 .Python

@@ -10,9 +10,24 @@ def time_dif(start,end):
 
 #####################
 
-name_list=['قنبری','عظیم محمدی','میثم محمدی','آسترکی','حشمتی پور','باجلان','مهرآبادی','دولت آبادی','چقایی','جودکی','خراط نژاد','سنجری']
+
 
 def similar(a):
+    name_list=['قنبری',
+            'عظیم محمدی',
+            'میثم محمدی',
+            'آسترکی',
+            'حشمتی پور',
+            'باجلان',
+            'مهرآبادی',
+            'دولت آبادی',
+            'چقایی',
+            'جودکی',
+            'خراط نژاد',
+            'سنجری',
+            'حسینی']
+
+
     useless_char_list=['1','2','3','ـ']
     a=a.strip()
     for c in useless_char_list:
@@ -22,30 +37,32 @@ def similar(a):
         a=a.replace("ا",
                     "آ",
                     1)
-    a=get_close_matches(a,name_list,n=1,cutoff=0.9)
+    # a=get_close_matches(a,name_list,n=1,cutoff=0.9)
 
     if 'خر' in a:
-        a=name_list[1]    
+        a=name_list[10]    
     elif 'جود' in a:
-        a=name_list[2]
+        a=name_list[9]
     elif 'چق' in a:
-        a=name_list[3]
+        a=name_list[8]
     elif 'دو' in a:
-        a=name_list[4]
+        a=name_list[7]
 
     elif 'هر' in a:
-        a=name_list[5]
-    elif 'اج' in a:
         a=name_list[6]
+    elif 'اج' in a:
+        a=name_list[5]
     elif 'حش' in a:
-        a=name_list[7]
+        a=name_list[4]
     elif 'رک' in a:
-        a=name_list[8]
+        a=name_list[3]
     elif 'ثم' in a:
-        a=name_list[9]
+        a=name_list[2]
     elif 'عظ' in a:
-        a=name_list[10]
+        a=name_list[1]
     elif 'قن' in a:
+        a=name_list[0]
+    elif 'سی' in a:
         a=name_list[11]
 
     return a
