@@ -22,7 +22,32 @@ def similar(a):
         a=a.replace("ا",
                     "آ",
                     1)
+    a=get_close_matches(a,name_list,n=1,cutoff=0.9)
 
-    return get_close_matches(a,name_list,n=1,cutoff=0.9)
+    if 'خر' in a:
+        a=name_list[1]    
+    elif 'جود' in a:
+        a=name_list[2]
+    elif 'چق' in a:
+        a=name_list[3]
+    elif 'دو' in a:
+        a=name_list[4]
+
+    elif 'هر' in a:
+        a=name_list[5]
+    elif 'اج' in a:
+        a=name_list[6]
+    elif 'حش' in a:
+        a=name_list[7]
+    elif 'رک' in a:
+        a=name_list[8]
+    elif 'ثم' in a:
+        a=name_list[9]
+    elif 'عظ' in a:
+        a=name_list[10]
+    elif 'قن' in a:
+        a=name_list[11]
+
+    return a
 
    
