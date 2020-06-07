@@ -17,7 +17,10 @@ with open('report_duration_tour.csv',encoding="utf_8") as f:
         if line_count > 0 and line_count%2 == 0:
             
             name=row[0]
+            print(name)
             name=similar(name)
+            print(name)
+
             name=name[::-1]
             data=float(row[1])
             left.append(name)

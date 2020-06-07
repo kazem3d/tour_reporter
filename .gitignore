@@ -13,6 +13,7 @@ report.csv
 personel/
 files/
 test.py
+files0/
 
 # Distribution / packaging
 .Python

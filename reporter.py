@@ -92,7 +92,7 @@ for m in range(1,number_of_file):
 
                 #Edit name if has any mistake
                 if similar(name) :
-                    name=similar(name)[0]
+                    name=similar(name)
 
                 start_time= sheet.row_values(i)[3] 
                 start_time=datetime.datetime.strptime(start_time,"%Y-%m-%d %H:%M:%S")
