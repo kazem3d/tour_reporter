@@ -62,8 +62,10 @@ def similar(a):
         a=name_list[1]
     elif 'قن' in a:
         a=name_list[0]
-    elif 'سی' in a:
+    elif 'جر' in a:
         a=name_list[11]
+    elif 'سی' in a:
+        a=name_list[12]
 
     return a
 
