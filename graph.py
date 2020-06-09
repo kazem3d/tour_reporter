@@ -7,7 +7,7 @@ date=''
 left=[]
 height=[]
 
-with open('report_duration_tour.csv',encoding="utf_8") as f:
+with open('report/report_duration_tour.csv',encoding="utf_8") as f:
     csv_reader = csv.reader(f, delimiter=',')
 
     line_count = 0

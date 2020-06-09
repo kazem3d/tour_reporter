@@ -8,7 +8,7 @@ import jdatetime
 
 #create and connect to report_datebase
 
-conn=sqlite3.connect('report_database')
+conn=sqlite3.connect('report/report_database')
 curser=conn.cursor()
 
 #create main table in database   
@@ -164,7 +164,7 @@ curser.execute('CREATE TABLE IF NOT EXISTS duration_tour AS SELECT name,sum(dura
 curser.execute('CREATE TABLE IF NOT EXISTS number_of_tour AS SELECT name,sum(number) FROM main GROUP BY name') 
 
 #create a csv file from main table
-with open('report.csv', mode='w',encoding="utf-8") as f:
+with open('report/report.csv', mode='w',encoding="utf-8") as f:
     writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
     tour_list=read_from_datebase('main')
@@ -174,7 +174,7 @@ with open('report.csv', mode='w',encoding="utf-8") as f:
         writer.writerow(i)
 
 #create a csv file from duration_tour table
-with open('report_duration_tour.csv', mode='w',encoding="utf-8") as f:
+with open('report/report_duration_tour.csv', mode='w',encoding="utf-8") as f:
     writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
     tour_list=read_from_datebase('duration_tour')
@@ -184,7 +184,7 @@ with open('report_duration_tour.csv', mode='w',encoding="utf-8") as f:
 
 
 #create a csv file from number_of_tour table
-with open('report_number_of_tour.csv', mode='w',encoding="utf-8") as f:
+with open('report/report_number_of_tour.csv', mode='w',encoding="utf-8") as f:
     writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
     tour_list=read_from_datebase('number_of_tour')
