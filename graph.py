@@ -45,11 +45,13 @@ tick_label=left
 plt.bar(left, height,tick_label=tick_label,width = 0.8, color = ['green']) 
 
 # naming the x-axis 
-plt.xlabel('x - axis') 
+plt.xlabel('name') 
 # naming the y-axis 
-plt.ylabel('y - axis') 
+plt.ylabel('minute') 
 # plot title 
-plt.title('My bar chart!') 
+plt.title('Tour report') 
+
+
 
 # function to show the plot 
 plt.show() 

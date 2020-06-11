@@ -25,7 +25,8 @@ def similar(a):
             'جودکی',
             'خراط نژاد',
             'سنجری',
-            'حسینی']
+            'حسینی',
+            'ذوالفقاری']
 
 
     useless_char_list=['1','2','3','ـ']
@@ -66,6 +67,8 @@ def similar(a):
         a=name_list[11]
     elif 'سی' in a:
         a=name_list[12]
+    elif 'ذو' in a:
+        a=name_list[13]
 
     return a
 

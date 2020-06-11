@@ -31,9 +31,9 @@ def record_in_database(data_tupel):
     conn.commit()
 
 #function for reading a table from date base and return data of row in list of list
-def read_from_datebase(table_name):
+def read_from_datebase(table_name,order):
     _list=[]
-    curser.execute('SELECT * FROM %s ' %table_name)
+    curser.execute('SELECT * FROM %s ORDER BY %s ' %(table_name,order))
     rows=curser.fetchall()
     for row in rows:
         row=list(row)
@@ -170,14 +170,14 @@ for m in range(1,number_of_file):
             print('################################')
 
 #create duration_tour and number_of_tour table from main table
-curser.execute('CREATE TABLE IF NOT EXISTS duration_tour AS SELECT name,sum(duration) FROM main GROUP BY name') 
-curser.execute('CREATE TABLE IF NOT EXISTS number_of_tour AS SELECT name,sum(number) FROM main GROUP BY name') 
+curser.execute('CREATE TABLE IF NOT EXISTS duration_tour AS SELECT name,sum(duration) as durations  FROM main GROUP BY name') 
+curser.execute('CREATE TABLE IF NOT EXISTS number_of_tour AS SELECT name,sum(number) as numbers  FROM main GROUP BY name') 
 
 #create a csv file from main table
 with open('report/report.csv', mode='w',encoding="utf-8") as f:
     writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-    tour_list=read_from_datebase('main')
+    tour_list=read_from_datebase('main','tour_date')
     
     writer.writerow(['ردیف','نام','تاریخ','مدت به دقیقه','تعداد'])
     for i in tour_list:
@@ -187,7 +187,7 @@ with open('report/report.csv', mode='w',encoding="utf-8") as f:
 with open('report/report_duration_tour.csv', mode='w',encoding="utf-8") as f:
     writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-    tour_list=read_from_datebase('duration_tour')
+    tour_list=read_from_datebase('duration_tour','durations')
     writer.writerow(['نام','مدت'])
     for i in tour_list:
         writer.writerow(i)
@@ -197,8 +197,9 @@ with open('report/report_duration_tour.csv', mode='w',encoding="utf-8") as f:
 with open('report/report_number_of_tour.csv', mode='w',encoding="utf-8") as f:
     writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-    tour_list=read_from_datebase('number_of_tour')
+    tour_list=read_from_datebase('number_of_tour','numbers')
     writer.writerow(['نام','تعداد'])
     for i in tour_list:
         writer.writerow(i)
 
+import graph
