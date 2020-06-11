@@ -45,6 +45,16 @@ def delete_from_database(name):
     curser.execute('DELETE FROM main WHERE name = \'%s\'; ' %(name) )
     conn.commit()
 
+#function for removing all rows  from  table of database
+def delete_from_database(tabel_name):
+    curser.execute('DELETE FROM \'%s\'; ' %(tabel_name) )
+    conn.commit()
+
+
+#clear database at first
+delete_from_database('main')
+
+
 print('Your xls file must be in /files/ folder  ')
 print('File\'s name must be like \"1 (5).xls>\" ')
 print('')
