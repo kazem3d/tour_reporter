@@ -109,7 +109,7 @@ for m in range(1,number_of_file):
 
                 #converting date to jalali
                 tour_date=jdatetime.datetime.fromgregorian(datetime=start_time)
-                tour_date=tour_date.strftime("%y/%m/%d")
+                tour_date=tour_date.strftime("%Y-%m-%d")
 
                 print('name=',name)
                 print('start_time= ',start_time)
@@ -136,7 +136,7 @@ for m in range(1,number_of_file):
                 print('duration= ',duration)
                 
                 #record a row of data in main table of datebase
-                record_in_database((name,tour_date,duration,tour_counter-1))
+                record_in_database((name,tour_date,int(duration),tour_counter-1))
 
                 #reset variable for nex loop
                 name=''
@@ -162,13 +162,14 @@ for m in range(1,number_of_file):
             print('number of tags that get checked = ',tour_counter)
             print('duration= ',duration)
           
-            record_in_database((name,tour_date,duration,tour_counter))
+            record_in_database((name,tour_date,int(duration),tour_counter))
 
             name=''
             start_time=''
             end_time=''
             print('################################')
 
+curser.execute('DROP TABLE IF EXISTS duration_tour; ')   
 #create duration_tour and number_of_tour table from main table
 curser.execute('CREATE TABLE IF NOT EXISTS duration_tour AS SELECT name,sum(duration) as durations  FROM main GROUP BY name') 
 curser.execute('CREATE TABLE IF NOT EXISTS number_of_tour AS SELECT name,sum(number) as numbers  FROM main GROUP BY name') 
